@@ -1,4 +1,4 @@
-# Gawetaner’s macOS dotfiles
+# Beh’s macOS dotfiles
 
 This repository contains several dotfiles and configurations that i want to sync accross my machines. It only targets macOS.
 
@@ -49,3 +49,6 @@ After pulling changes or modifying the files, rerun the `install.sh` script.
 ## TODOs
 
 - Ask for required git configs if `.gitconfog.local` does not exist.
+
+## Special thanks
+Special thanks to @Gawetaner, on who's original dotfiles repo this is based.
