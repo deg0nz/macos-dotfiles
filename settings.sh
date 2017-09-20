@@ -76,8 +76,8 @@ defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 # Use current folder as default folder when performing a search
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
-# Use list view as default
-defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+# Use icon view as default
+defaults write com.apple.finder FXPreferredViewStyle -string "icnv"
 
 # Enable text selection in QuickLook
 defaults write com.apple.finder QLEnableTextSelection -bool TRUE
@@ -119,39 +119,19 @@ defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
 # Desktop and Dock                                                            #
 ###############################################################################
 
-# Set the desktop background image
-osascript <<'APPLESCRIPT'
-  tell application "System Events"
-    set desktopCount to count of desktops
-    repeat with desktopNumber from 1 to desktopCount
-      tell desktop desktopNumber
-        set picture to "/Library/Desktop Pictures/Solid Colors/Solid Gray Pro Ultra Dark.png"
-      end tell
-    end repeat
-  end tell
-APPLESCRIPT
-
-# Move Dock to the left
-defaults write com.apple.dock orientation -string "left"
-
-# Enable auto hide
-defaults write com.apple.dock autohide -bool true
-
-# Remove auto hide delay
-defaults write com.apple.Dock autohide-delay -float 0
+# Disable auto hide
+defaults write com.apple.dock autohide -bool false
 
 # Adjust size of Dock icons
-defaults write com.apple.dock tilesize -int 50
+defaults write com.apple.dock tilesize -int 28
 
-# Don’t animate opening applications from Dock
-defaults write com.apple.dock launchanim -bool false
+# Enable Magnification
+defaults write com.apple.dock magnification -bool true
+
+# Adjust size of Dock icons
+defaults write com.apple.dock largesize -int 89
 
 # Use translucent icons for hidden apps
 defaults write com.apple.dock showhidden -bool true
-
-# Only show Mail.app and Downloads in the dock.
-dockutil --no-restart --remove all
-dockutil --no-restart --add "/Applications/Mail.app"
-dockutil --no-restart --add "$HOME/Downloads" --view grid --display folder
 
 killall Dock
